@@ -277,6 +277,10 @@ console.log(oldestFilm());
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
 */
 
+let numberFilms = () => {
+  return movies.length
+}
+console.log(numberFilms())
 /* ESERCIZIO 11 (map)
   Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
 */
