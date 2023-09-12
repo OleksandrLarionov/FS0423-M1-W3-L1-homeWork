@@ -123,7 +123,6 @@ array.forEach((k) => {
   if (k % 2 !== 0 && k < 100 && k > 0){
     oddNumber.push(k)
   }
-
 })
  return oddNumber
 }
@@ -263,14 +262,30 @@ const movies = [
 // }
 
 // console.log(olddestFilm());
+let OldestFilm = (array) => {
+  let oldest = array[0]
+  array.forEach((movie) => {
+    if(parseInt(movie.Year) < parseInt(oldest.Year)){
 
-function oldestFilm() {
-  let years = [];
-  movies.forEach((movie) => {
-    years.push(Number(movie.Year));
-  });
-  return Math.min(...years);
+      oldest = movie
+    }
+  })
+  return oldest
 }
+console.log(OldestFilm(movies));
+
+//questo trova solo la data del film
+
+// function oldestFilm() {
+//   let years = [];
+//   movies.forEach((movie) => {
+//     years.push(Number(movie.Year));
+//   });
+//   return Math.min(...years);
+// }
+
+
+
 
 console.log(oldestFilm());
 /* ESERCIZIO 10
@@ -295,7 +310,7 @@ console.log(titoli());
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
 let millennio = () => {
-  let milleniumMovie = movies.filter((movie) => movie.Year > 2000)
+  let milleniumMovie = movies.filter((movie) => movie.Year > 1999)
   return milleniumMovie
 }
 
@@ -305,10 +320,24 @@ console.log(millennio());
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
 
+const laSommaY = (arr) => {arr.reduce((total, current) => {
+  let sum = parseInt( total += current.Year)
+  return console.log(sum)
+}, 0)}
+console.log(laSommaY(movies));
 /* ESERCIZIO 14 (find)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
 */
+const movieIDfinder = (arr, id) => arr.find((n) => n.imdbID === id)
+
+console.log(movieIDfinder(movies, 'tt4154756'))
+
+
+
 
 /* ESERCIZIO 15 (findIndex)
   Scrivi una funzione per ottenere dall'array fornito l'indice del primo film uscito nell'anno fornito come parametro.
 */
+const findMovieByYear = (arr, year) => arr.findIndex((n) => parseInt(n.Year) === year)
+
+console.log(findMovieByYear(movies, 2019));
